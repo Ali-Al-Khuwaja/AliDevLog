@@ -137,6 +137,8 @@ ul {
     .welcome-title {
         margin: 35px;
         margin-top: 100px;
+        margin-left: 16px;
+        margin-right: 16px;
         padding-right: 16px;
         padding-left: 16px;
     }
@@ -155,8 +157,8 @@ ul {
     }
 
     .text-content {
-        margin-left: 35px !important;
-        margin-right: 35px !important;
+        margin-left: 16px !important;
+        margin-right: 16px !important;
     }
 
     .narrowTextBox {
@@ -186,7 +188,7 @@ ul {
 
     .title {
         font-weight: 800;
-        font-size: 3rem !important;
+        font-size: 2.7rem !important;
         margin-bottom: 0.9rem !important;
         margin-top: 0.9rem !important;
         text-align: center;
@@ -194,8 +196,8 @@ ul {
 
 
     article {
-        margin-left: 7% !important;
-        margin-right: 7% !important;
+        margin-left: 16px !important;
+        margin-right: 16px !important;
     }
 }
 
@@ -372,8 +374,8 @@ article>img {
 }
 
 .subTitle {
-    font-weight: 500;
-    font-size: 1.5rem;
+    font-weight: 400;
+    font-size: 1.3rem;
     margin-top: 0.75rem !important;
     text-align: center;
     width: 90%;
