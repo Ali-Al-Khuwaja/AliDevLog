@@ -8,7 +8,7 @@ A guy exploring the realms of both web and game development. With each blog post
 
 ## What You’ll Find
 
-- **Blog Posts**: Insights and tutorials on game development and Defold.
+- **Blog Posts**: Insights and tutorials on game development and Godot.
 - **Project Showcases**: Highlights of the projects I'm working on, including code snippets and demos.
 - **Resources**: A collection of tools, libraries, and tutorials that I find helpful in my learning journey.
 
