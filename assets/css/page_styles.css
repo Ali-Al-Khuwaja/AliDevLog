@@ -173,8 +173,7 @@ nav>div>ul {
         font-size: medium !important;
     }
 
-    nav>div>ul,
-    ul {
+    nav>div>ul{
         display: flex;
         justify-content: center;
         align-items: center;
