@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>GameDevBirds</title>
+    <meta name="title" content="GameDevBirds" />
+    <meta name="description"
+        content="A biweekly blog about my Journey learning game development on the side while diving into web development."" />
+    <link rel=" icon" href="../assets/images/site_images/icon.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/normalize-css/modern-normalize.css" />
+    <link rel="stylesheet" href="../assets/css/page_styles.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-nav-side">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <img src="../assets/images/site_images/icon.png" alt="project birds logo" class="logo" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../index.html" class="minimal-anchors">GameDevBirds</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-nav-side">
+                <ul>
+                    <li>
+                        <a href="../index.html" class="minimal-anchors ">Home</a>
+                    </li>
+                    <li>
+                        <a href="../pages/about.html" class="minimal-anchors ">about</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- THis part is for the introduction title -->
+        <div class="blog-title-container">
+            <h1 class="title">How to prepare your Ubuntu laptop for a gaming session ?
+            </h1>
+            <h2 class="subTitle">
+                Full simple and beginner friendly guide on how to set up your Nvidia graphics card with
+                Ubuntu operating system for gaming using, tested by trail and error .</h2>
+            <div class="blogPostWallpaper blog-bg blog-cover-img"
+                style="background-image: url(../assets/images/blogsBG/firstpost.webp);">
+                <!-- <img src="../assets/Icons-and-backgrounds/gear.svg" alt="" class="fit-logo"> -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <blockquote>
+                <p><em><strong>What is there to prepare, just hit play and have fun, right ?</strong></em>
+                </p>
+            </blockquote>
+            <p>Well, no, it's not that simple, let me explain</p>
+            <p>If you have a weak NVIDIA graphics card just like me, for example MX350, which is for
+                notebook laptops,
+                you may have noticed immediately that the card is not giving it's full performance compared to windows,
+                you may have
+                thought, maybe gaming on Linux or Ubuntu is not yet ready for gaming or something like that and that
+                people may have
+                lied about getting the same performance as windows in games using proton or just lucky, or maybe they
+                got an RTX
+                card, if not, at least I did 😔.</p>
+            <p>Until ...</p>
+            <p>Until I tried Counter-strike 2, a native Linux game, it should run smoothly no matter what,
+                it should
+                even run better than windows, there is no proton layer that translates code .</p>
+            <p>It was bad, I am talking about having under 60 fps in the game, this is a native game that
+                is meant to
+                be played om Linux systems, what is wrong with my Ubuntu desktop or NVIDIA card ?</p>
+            <p>Turns out, it's NVIDIA, especially that NVIDIA X server settings APP, it's not about not
+                having the
+                latest driver, it's about the NVIDIA card not utilizing itself to max performance, I noticed that the
+                fan speed is
+                slow, the laptop didn't heat as much, something is wrong, in windows when I play games, the laptop
+                sounds like a jet
+                plane, but not on Ubuntu, why ? Hmmmm...</p>
+            <p>I tried what I know, I tested and found out that,</p>
+            <p>This is misleading :</p>
+            <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/7lvv3r3f2n7f3rianmvd.png"
+                alt="NVIDIA Powermizer preferred mode maximum performance" />
+            <p>It's not truly max performance, to explain further, read this hint :</p>
+            <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/20ejtehd92ejo96m01m8.png"
+                alt="NVIDIA Powermizer preferred mode hint" />
+            <p>In short</p>
+            <ul>
+                <li>Auto = driver picks (it will pick Adaptive most of the time)</li>
+                <li>Adaptive = clock speed will change based on card utilization</li>
+                <li>Prefer maximum performance = hint to the driver to do it's best</li>
+            </ul>
+            <p>In games, prefer maximum performance, the fps fluctuates too much, it's annoying and you
+                will lose to
+                your enemy, I think hinting is not enough, after all, no one knows how the driver works because it a
+                proprietary
+                driver, that's why, I suggest to put it on auto, let the driver do it's magic and let it decide.</p>
+            <p>But that is not enough, even with this noted, it's still not the true power of my card, I
+                tried and
+                tested and found out that I need to do a <strong>restart</strong> with <strong>performance mode
+                    on</strong> in
+                Ubuntu <strong>power mode</strong> options each time I want to change an NVIDIA option WHILE the laptop
+                is plugged
+                to the charger or it will just NOT WORK.</p>
+            <blockquote>
+                <p>To summarize : you need to set NVIDIA PowerMizer settings, preferred mode to auto, plus
+                    your power
+                    mode to performance in Ubuntu then restart while the laptop is plugged to the charger, starting up
+                    with
+                    performance mode and having the laptop plugged in will get you 98% same performance as windows.</p>
+            </blockquote>
+            <p>note: you can set the graphics quality for OpenGL in the NVIDIA app</p>
+            <p>see you later . 👋</p>
+            <script src="https://giscus.app/client.js" data-repo="Ali-Al-Khuwaja/GameDevBirds"
+                data-repo-id="R_kgDON2vgDA" data-category="General" data-category-id="DIC_kwDON2vgDM4ComHp"
+                data-mapping="pathname" data-strict="0" data-reactions-enabled="1" data-emit-metadata="0"
+                data-input-position="bottom" data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy"
+                crossorigin="anonymous" async>
+                </script>
+        </article>
+
+    </main>
+    <footer>
+
+        <hr />
+        <div class="legalStuff">
+            <p>
+                Attribution-NonCommercial-ShareAlike 4.0 International
+            </p>
+            <div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"><img
+                        src="../assets/images/site_images/by-nc-sa.svg" alt="cc-logo" /></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "e2b32fce49024fc783c7b893be35bb82"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>
