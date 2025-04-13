@@ -4,7 +4,7 @@ Welcome to AliDevLog! This is a blog dedicated to my journey as I learn game dev
 
 ## About Me
 
-A guy exploring the realms of both web and game development. With each blog post, I aim to document my progress, challenges, and the lessons I learn. Whether you're a beginner or an experienced developer, I hope you find something valuable here in GDB!
+A guy exploring the realms of both web and game development. With each blog post, I aim to document my progress, challenges, and the lessons I learn. Whether you're a beginner or an experienced developer, I hope you find something valuable here in !
 
 ## What You’ll Find
 
