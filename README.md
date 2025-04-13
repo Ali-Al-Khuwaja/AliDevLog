@@ -1,6 +1,6 @@
-# GameDevBirds
+# AliDevLog
 
-Welcome to GameDevBirds! This is a blog dedicated to my journey as I learn game development alongside web development and some other stuff I find useful. Here, I share my experiences, insights, and resources that I discover along the way.
+Welcome to AliDevLog! This is a blog dedicated to my journey as I learn game development alongside web development and some other stuff I find useful. Here, I share my experiences, insights, and resources that I discover along the way.
 
 ## About Me
 
@@ -12,4 +12,4 @@ A guy exploring the realms of both web and game development. With each blog post
 - **Project Showcases**: Highlights of the projects I'm working on, including code snippets and demos.
 - **Resources**: A collection of tools, libraries, and tutorials that I find helpful in my learning journey.
 
-Thank you for visiting GameDevBirds! Happy coding!
+Thank you for visiting AliDevLog! Happy coding!
