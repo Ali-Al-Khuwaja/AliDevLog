@@ -231,7 +231,7 @@ nav>div>ul {
         height: auto !important;
         width: 100% !important;
         border-radius: 13px;
-        object-fit: fill;
+        object-fit: cover;
     }
 }
 
