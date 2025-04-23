@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>Ali's DevLog</title>
+    <meta name="title" content="Ali's DevLog" />
+    <meta name="description"
+        content="A blog sharing my experiences in game development, web development, and a mix of random topics" />
+    <link rel=" icon" href="../assets/images/site_images/icon.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/normalize-css/modern-normalize.css" />
+    <link rel="stylesheet" href="../assets/css/page_styles.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-nav-side">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <img src="../assets/images/site_images/icon.png" alt="Ali's DevLog site logo"
+                                class="logo" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../index.html" class="minimal-anchors">Ali's DevLog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-nav-side">
+                <ul>
+                    <li>
+                        <a href="../index.html" class="minimal-anchors ">Home</a>
+                    </li>
+                    <li>
+                        <a href="../pages/about.html" class="minimal-anchors ">about</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- THis part is for the introduction title -->
+        <div class="blog-title-container">
+            <h1 class="title">Optimizing Power usage on Ubuntu Laptops with NVIDIA GPUs</h1>
+            <h2 class="subTitle">A Step-by-Step Guide for Ubuntu Newbies to Configure Power Settings, improve Battery
+                Life, and Navigate GPU Management quirks</h2>
+            <div class="blogPostWallpaper blog-bg blog-cover-img"
+                style="background-image: url(../assets/images/blogsBG/ubuntupower.webp);">
+                <!-- <img src="../assets/Icons-and-backgrounds/gear.svg" alt="" class="fit-logo"> -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <p>This is tested on &quot; Intel 11th CPU with intel_pstate driver and an NVIDIA GPU with 535 proprietary
+                driver&quot;,
+                I don't know if this works the same way on AMD CPUs and GPUs</p>
+            <p>This guide is for normal users that want things just to work with least amount of headache possible</p>
+            <h2>Understanding both normal system power modes &amp; NVIDIA Prime profiles</h2>
+            <br>
+            <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/x46ap1jwdpbykszerwpb.png"
+                alt="Gnome power modes" />
+            <img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/t6fv5zk6jcwbzlnr5jk9.png"
+                alt="nvidia power profiles" />
+            <p>Lets start with Power modes from gnome settings, each mode does exactly what it says ,that's it, NVIDIA
+                Prime
+                profiles also do what they say, but it only affects the state of the GPU, not the system, keep this in
+                your mind.
+            </p>
+            <p>To summarize :</p>
+            <blockquote>
+                <p>System Power modes tries to apply a state for the whole system .</p>
+            </blockquote>
+            <blockquote>
+                <p>NVIDIA prime profiles applies a state only for the GPU's driver .</p>
+            </blockquote>
+            <p>How to :</p>
+            <h2>Use max power saving mode</h2>
+            <ul>
+                <li>disable the nvidia card , <code>sudo prime-select intel</code> , don't worry , the integrated GPU in
+                    your CPU
+                    will take control now .</li>
+                <li>Enable system power saver mode .</li>
+                <li>Reboot --&gt; This is a vital step and can not be ignored</li>
+            </ul>
+            <h2>Use a balanced mode</h2>
+            <ul>
+                <li>Use Nvidia on-demand prime profile .</li>
+                <li>Use balanced power mode for the system.</li>
+                <li>Reboot --&gt; This is a vital step and can not be ignored</li>
+            </ul>
+            <h2>Use max performance mode</h2>
+            <ul>
+                <li>Set Nvidia prime profile to performance mode .</li>
+                <li>Set performance mode for the system .</li>
+                <li>Reboot the laptop while it's plugged in the charger --&gt; This is a vital step and can not be
+                    ignored(tested
+                    for games)</li>
+                <li>After reboot , change nvidia powerMizer to auto, let the driver do it's thing .</li>
+            </ul>
+            <h3>Notes :</h3>
+            <ol>
+                <li>You can change system modes without rebooting .</li>
+                <li>You should always reboot for nvidia prime profiles to be applied .</li>
+                <li>You can mix system power modes and prime profiles but don't make illogical mixes like system power
+                    saving mode
+                    while running performance mode on your nvidia card, this is not recommended .</li>
+            </ol>
+            <p>This is all tested by trail and error and taking note, I hope I saved you time</p>
+            <p>See you later 👋</p>
+
+            <script src="https://giscus.app/client.js" data-repo="Ali-Al-Khuwaja/AliDevLog" data-repo-id="R_kgDON2vgDA"
+                data-category="General" data-category-id="DIC_kwDON2vgDM4ComHp" data-mapping="pathname" data-strict="0"
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom"
+                data-theme="preferred_color_scheme" data-lang="en" data-loading="lazy" crossorigin="anonymous" async>
+                </script>
+        </article>
+
+    </main>
+    <footer>
+
+        <hr />
+        <div class="legalStuff">
+            <p>
+                Attribution-NonCommercial-ShareAlike 4.0 International
+            </p>
+            <div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"><img
+                        src="../assets/images/site_images/by-nc-sa.svg"
+                        alt="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License logo" /></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "11ffea77b5d6463b91d93d06bc02c664"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>
