@@ -173,7 +173,7 @@ nav>div>ul {
         font-size: medium !important;
     }
 
-    nav>div>ul{
+    nav>div>ul {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -277,6 +277,7 @@ nav>div>ul {
     margin-left: 6rem;
     margin-right: 6rem;
     line-height: 2rem;
+    gap: 32px;
 }
 
 .accordion {
@@ -326,6 +327,7 @@ nav>div>ul {
 .legalStuff>div>a>img {
     height: 40px;
     width: auto;
+    border-radius: 3px;
 }
 
 .legalStuff>div {
@@ -448,4 +450,9 @@ blockquote {
     margin-left: 0.5em;
     line-height: 1.9em;
     border-left: 6px solid gray;
+}
+
+article>h2 {
+    display: block;
+    text-align: start;
 }
