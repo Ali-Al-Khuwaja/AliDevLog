@@ -63,7 +63,7 @@ h2 {
 }
 
 .welcome-title>h1 {
-    font-size: 3.5rem;
+    font-size: 4.5rem;
     margin-bottom: 0;
     width: 80%;
     text-align: center;
@@ -422,7 +422,7 @@ video {
 }
 
 code {
-    background-color: var(--black-line);
+    /* background-color: var(--black-line); */
     font-family: monospace;
 }
 
@@ -455,4 +455,72 @@ blockquote {
 article>h2 {
     display: block;
     text-align: start;
+}
+
+pre {
+    background: #0d1117;
+    color: #c9d1d9;
+    padding: 16px 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-size: 14px;
+    line-height: 1.6;
+    border: 1px solid #30363d;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+code {
+    font-family: "Fira Code", "JetBrains Mono", monospace;
+}
+
+/* Optional: nicer scroll bar */
+pre::-webkit-scrollbar {
+    height: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-thumb:hover {
+    background: #484f58;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    background: #0d1117;
+    color: #c9d1d9;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+thead {
+    background: #161b22;
+}
+
+th,
+td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #30363d;
+}
+
+th {
+    font-weight: 600;
+    color: #8b949e;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+/* subtle row hover */
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.03);
 }
