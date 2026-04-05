@@ -257,7 +257,7 @@ nav>div>ul {
 
 .blogThumbnail {
     height: 200px;
-    width: 400px;
+    width: 325px;
     border-radius: 13px;
 }
 
@@ -422,7 +422,7 @@ video {
 }
 
 code {
-    /* background-color: var(--black-line); */
+    /* background-color: var(--bg-black); */
     font-family: monospace;
 }
 

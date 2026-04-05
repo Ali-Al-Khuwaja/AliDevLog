@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" name="type" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Primary Meta Tags -->
+    <title>Ali's DevLog</title>
+    <meta name="title" content="Ali's DevLog" />
+    <meta name="theme-color" content="#6DB33F" />
+    <meta name="description"
+        content="A blog sharing my experiences in game development, web development, and a mix of random topics" />
+    <link rel=" icon" href="../assets/images/site_images/icon.png" type="image/png" />
+    <link rel="stylesheet" href="../assets/css/normalize-css/modern-normalize.css" />
+    <link rel="stylesheet" href="../assets/css/page_styles.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left-nav-side">
+                <ul>
+                    <li>
+                        <a href="../index.html">
+                            <img src="../assets/images/site_images/icon.png" alt="Ali's DevLog site logo"
+                                class="logo" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../index.html" class="minimal-anchors">Ali's DevLog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-nav-side">
+                <ul>
+                    <li>
+                        <a href="../index.html" class="minimal-anchors ">Home</a>
+                    </li>
+                    <li>
+                        <a href="../pages/about.html" class="minimal-anchors ">about</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- THis part is for the introduction title -->
+        <div class="blog-title-container">
+            <h1 class="title">How I Finally Got Stable 60 FPS on Ubuntu laptop (NVIDIA + Intel)</h1>
+            <h2 class="subTitle">Fixing low FPS, stuttering, and weird performance on Linux laptops</h2>
+            <div class="blogPostWallpaper blog-bg blog-cover-img"
+                style="background-image: url(../assets/images/blogsBG/ubuntu-nvidia.png);">
+                <!-- <img src="../assets/Icons-and-backgrounds/gear.svg" alt="" class="fit-logo"> -->
+            </div>
+        </div>
+    </header>
+    <main>
+        <article>
+            <h1>How I Finally Got Stable 60 FPS on Ubuntu laptop (NVIDIA + Intel)</h1>
+
+            <h2>Context</h2>
+            <p>I’m running Ubuntu on an HP <strong>laptop</strong> with:</p>
+            <ul>
+                <li>Intel i5 (11th gen)</li>
+                <li>NVIDIA MX350 (Optimus setup)</li>
+            </ul>
+
+            <p>I was using Steam with the latest Proton (10.0-4) to play Warframe (Gold-rated on ProtonDB), and CS2
+                (native Linux).
+            </p>
+
+            <hr>
+
+            <h2>The Problem</h2>
+            <p>Playing games on an Ubuntu <strong>laptop</strong> was a horrible experience with an Nvidia GPU ,it was
+                always
+                mysterious and vague on why I had a terrible performance and inconsistent FPS problems .</p>
+
+            <p>It wasn't like because Linux can't game like any one would've thought ,but because gaming on a Linux
+                laptop is pain .
+            </p>
+
+            <p>I'm talking about having performance issues even on native Linux games which should not be possible
+                unless if
+                purposely slow down your laptop ,ahm ahm (yes it was that 🙄)</p>
+
+            <p>I had CS2 and CSGO(in the past) which is a native game... and it was Lagging ,How ? How am I lagging? I
+                even deleted
+                proton to be sure .</p>
+
+            <p>To be more clear ,most of the time I had my <strong>GPU usage on 100%</strong> but with an average of 27
+                fps and a
+                lot unbearable stuttering 🤨 ,the laptop's fan was not ramping up much ,it's didn't reach it's maximum
+                speed ,I know
+                what my laptop can &amp; can't do since I used to play on windows before ,I should get a consistent 60
+                FPS on
+                certain graphical settings on both Warframe and CSGO ,well now it's CS2.</p>
+
+            <h2>What I Tried (and failed)</h2>
+            <p>I tried everything an average person would try:</p>
+            <ul>
+                <li>I tired rebooting</li>
+                <li>Not rebooting😆 (you should rebooting after switching prime-profiles)</li>
+                <li>Switching between Wayland from X11</li>
+                <li>Reinstalling NVIDIA drivers</li>
+                <li>Switching distros</li>
+                <li>Launching games with terminal commands to use specify use of the discrete card (NVIDIA)</li>
+                <li>Changing some settings in the NVIDIA X server settings</li>
+            </ul>
+
+            <p>I still had my game stuttering and low FPS ,hmm</p>
+
+            <h2>The Breakthrough &amp; a small talk on power consumption</h2>
+            <p>The issue wasn't really in the GPU ,the real bottleneck was the CPU governor ,let me explain how I got
+                there .</p>
+
+            <p>Us laptop users care about the battery life and want to extend it much as possible.</p>
+
+            <p>Those who have dual graphics cards with an Optimus setup , iGPU + GPU (NVIDIA in my case) ,so ,I do turn
+                off my
+                NVIDIA card when I don't want to play any games ,using <code>sudo prime-select intel</code> .</p>
+
+            <p>And because intel drivers are great on linux ,I go on my daily life with the iGPU on wayland because it
+                works fine.
+            </p>
+
+            <p>Running the iGPU only has great benefits ,I get an average power consumption of 6W on idle and 10w~12w
+                when multi
+                tasking ,here I'm consuming 8.9w while having youtube running and other 9 chrome tabs open</p>
+
+            <img src="../assets/images/blogsBG/power-consumption.png" alt="power consumption rate">
+
+            <p>It's very acceptable rate to be honest and it will be lower if I'm reading or coding ,it really depends
+                on how active
+                I am in the real time.</p>
+
+            <p>Okay here is that ,now to NVIDIA .</p>
+
+            <p>If you're like me and tried to keep your GPU card run on-demand because you will play games this week
+                ,you will
+                immediately get an 9w on idle and 14w~17w when multi tasking ,that GPU drains a lot of energy ,go ahead
+                and check
+                power statistics .</p>
+
+            <p>Well ,I would take that trade-off any time if I'm expecting a free time to play Warframe on-demand but it
+                didn't work
+                and I got a terrible performance ,I even tried performance mode ,only to consume more power and get no
+                effects
+                ,still lagging on NVIDIA ,I accepted it and blamed NVIDIA for not optimizing it's drivers which somewhat
+                true ,hey
+                ,if you wanna play ,just hop on windows🫤 ,that's what I thought until one day</p>
+
+            <p>So here I am one day ,retrying on-demand prime-profile after updating my NVIDIA drivers to the latest new
+                version
+                .<br>
+                I got a terrible app loading time on system apps ,apps like settings ,umm hello? what is happening?</p>
+            <img src="../assets/images/blogsBG/on-demand.png" alt="on-demand mode on nvidia">
+
+            <p>I always had almost 1 second loading time or even less when I had intel iGPU only on ,why is it taking
+                more when I
+                have my NVIDIA GPU on-demand ,it should have been faster.</p>
+
+            <p>So I jumped to ask an AI and gave it some logs ,it said that most of my systems are working normally :
+            </p>
+
+            <blockquote>
+                <p>1. ✅ NVIDIA kernel modules are loading (driver version 580.126.09)<br>
+                    2. ✅ NVIDIA Persistence Daemon is running<br>
+                    3. ✅ NVIDIA modesetting driver is loaded<br>
+                    4. ✅ Xorg is detecting and attempting to use the NVIDIA driver</p>
+
+                <p>Issues Detected:<br>
+                    1. Critical DRM Errors (Lines 15-16):</p>
+
+                <pre><code>nvidia 0000:01:00.0: [drm] No compatible format found
+nvidia 0000:01:00.0: [drm] Cannot find any crtc or sizes</code></pre>
+            </blockquote>
+
+            <p>And some other issues ,four in total ,they don't matter for now.<br>
+                It also said :</p>
+
+            <blockquote>
+                <p>&gt; The key issue: In on-demand mode, the NVIDIA GPU is essentially "asleep" until an application
+                    requests it.
+                    But the DRM subsystem is trying to initialize it at boot and failing because it can't find a display
+                    connected
+                    to it . This causes those No compatible format found errors.</p>
+
+                <p>Here's how to fix this:<br>
+                    Immediate Fix: Switch to NVIDIA Mode....</p>
+            </blockquote>
+
+            <p>or blah blah blah ,Enable modesetting for NVIDIA ,Add kernel parameters: blah blah blah Test Application
+                Offloading
+                blah blah ,Create a minimal Xorg configuration for on-demand mode something something .</p>
+
+            <p>I have no idea what it was talking about ,but we don't need any of that because the solution is very
+                simple🙂.</p>
+
+            <p>I had to stop the AI from overthinking and gave it all my notes on all behaviors I noticed happening in
+                my system
+                ,that helps AI a lot.</p>
+
+            <p>At the end ,It's all because of power modes .The GPU isn't the main factor ,the real bottleneck is the
+                CPU governor
+                but it's not that simple unless you know.</p>
+
+            <p>here is some data I got after running some tests on each power-mode using
+                <code>time gnome-control-center</code>
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mode</th>
+                        <th>CPU Governor</th>
+                        <th>Settings Open Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Intel</td>
+                        <td>powersave</td>
+                        <td>3.5s - 4.0s</td>
+                    </tr>
+                    <tr>
+                        <td>Intel</td>
+                        <td>performance</td>
+                        <td>1.8s - 2.1s</td>
+                    </tr>
+                    <tr>
+                        <td>NVIDIA</td>
+                        <td>powersave</td>
+                        <td>2.3s - 2.4s</td>
+                    </tr>
+                    <tr>
+                        <td>NVIDIA</td>
+                        <td>performance</td>
+                        <td>? (probably ~1.5s)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Step-by-Step Fix</h2>
+            <p>I will take the AI's words here and paste them here since it explains it better than me :</p>
+
+            <blockquote>
+                <h3>The Root Cause</h3>
+                <p>On Optimus laptops, the NVIDIA GPU doesn't directly connect to the display - it renders frames and
+                    passes them
+                    through the Intel GPU. This causes two main issues:</p>
+
+                <ol>
+                    <li>DRM errors are NORMAL - The "No compatible format found" errors happen because NVIDIA tries to
+                        initialize a
+                        display controller that doesn't exist. They're harmless!</li>
+                    <li>CPU governor is the REAL culprit - Even when you select "Performance" mode in GNOME, the actual
+                        CPU governor
+                        often stays on powersave, causing 2-4 second delays in app launches.</li>
+                </ol>
+
+                <p>&gt; My comment here: Gnome power profiles are not always true, you can set you laptop's power
+                    profile on
+                    performance but still have the CPU governor on powersave , gnome power profile lies? .</p>
+            </blockquote>
+
+            <h3>The Solution</h3>
+
+            <h4>Step 1: Proper GPU Switching</h4>
+            <pre><code>#!/bin/bash
+            
+            set_governor() {
+                echo "Setting CPU governor to $1..."
+                echo $1 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+                echo "Current governor:"
+                cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+            }
+            
+            echo "Select GPU Mode:"
+            echo "1) Intel (Power Saving)"
+            echo "2) NVIDIA (Performance)"
+            read -p "Enter choice [1 or 2]: " choice
+            
+            if [ "$choice" == "1" ]; then
+                echo "Switching to Intel mode and power-saver profile..."
+                sudo prime-select intel
+                powerprofilesctl set power-saver
+                set_governor "powersave"
+                
+            elif [ "$choice" == "2" ]; then
+                echo "Switching to NVIDIA mode and performance profile..."
+                sudo prime-select nvidia
+                powerprofilesctl set performance
+                set_governor "performance"
+                
+                if [ -f /sys/devices/system/cpu/intel_pstate/energy_performance_preference ]; then
+                    echo "performance" | sudo tee /sys/devices/system/cpu/intel_pstate/energy_performance_preference
+                fi
+                
+                for cpu in /sys/devices/system/cpu/cpu*/power/energy_perf_bias; do
+                    echo "performance" | sudo tee $cpu 2>/dev/null
+                done
+            else
+                echo "Invalid choice."
+                exit 1
+            fi
+            
+            echo ""
+            echo "Final verification:"
+            echo "GPU Mode: $(prime-select query)"
+            echo "Power Profile: $(powerprofilesctl get)"
+            echo "CPU Governor: $(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)"
+            echo ""
+            echo "Done. Please reboot for changes to take full effect."
+            </code></pre>
+
+            <h3>Key Takeaways</h3>
+            <ol>
+                <li>DRM errors are red herrings ,don't waste time fixing them on Optimus laptops.</li>
+                <li>CPU governor matters more than you think ,powersave can add 2-3 seconds to app launches because it
+                    will slow
+                    down everything to save power ,it works so well.</li>
+                <li>GNOME's power profiles <strong>don't</strong> always set the CPU governor ,<strong>You need to do it
+                        manually</strong> if you know you are gaming soon.</li>
+                <li>Systemd services are your friend ,use them to enforce settings across reboots.</li>
+            </ol>
+
+            <h4>Credits</h4>
+            <p>This solution was developed through collaborative troubleshooting with DeepSeek AI, an incredible coding
+                assistant
+                that helped diagnose the real issues, understand the logs, and craft these practical solutions.</p>
+
+            <hr>
+
+            <p>Yeah yeah AI is helpful but here is what you should know as rule of thumb:</p>
+
+            <p>On intel only, the intel prime-profile <code>prime-select intel</code>:</p>
+            <ul>
+                <li>Power Saving profile: System slows down (~3-4s app launch), great battery life (4+ hours)</li>
+                <li>Performance profile: System speeds up (~1.8s app launch), but uses more battery.</li>
+                <li>Verdict: GNOME power profiles actually work here! Switching between powersave/performance changes
+                    CPU behavior
+                    noticeably.</li>
+            </ul>
+
+            <p>On NVIDIA only ,the NVIDIA prime-profile <code>prime-select nvidia</code>:</p>
+            <ul>
+                <li>Without fixes: System slow (~3s) even with "Performance" selected in GNOME power modes.</li>
+                <li>With our fixes: System fast (~1.5s), gaming at 60 FPS</li>
+                <li>Verdict: GNOME power profiles are IGNORED here for some reason ,you must manually set CPU governor
+                </li>
+            </ul>
+
+            <p>On on-demand , the on-demand prime-profile <code>prime-select on-demand</code>:</p>
+            <ul>
+                <li>What should happen: Desktop runs on Intel (saving power), games auto-switch to NVIDIA</li>
+                <li>What actually happens:
+                    <ul>
+                        <li>Desktop is slow (CPU stuck on power-save)</li>
+                        <li>Games don't properly activate NVIDIA (30 FPS instead of 60)</li>
+                        <li>Worst of both worlds - no battery savings AND no performance</li>
+                    </ul>
+                </li>
+                <li>Verdict: Great idea in theory, but implementation needs work, the NVIDIA drivers for linux laptops
+                    could be
+                    improved on Ubuntu laptops .</li>
+            </ul>
+
+            <h2>The Moral of the Story</h2>
+            <p>Linux on Optimus laptops is almost there. The hardware works, the drivers work, but the integration
+                between:</p>
+            <ul>
+                <li>prime-select (GPU switching)</li>
+                <li>powerprofilesctl (GNOME power profiles)</li>
+                <li>CPU governors</li>
+            </ul>
+            <p>It is still a bit rough. Until it's polished, manual control with simple scripts is the way to go.</p>
+
+            <h2>Results</h2>
+            <ul>
+                <li>Stable 60 FPS</li>
+                <li>No stuttering</li>
+                <li>Fans behaving normally</li>
+                <li>The laptop is using its full power.</li>
+            </ul>
+
+            <h2>What I Learned</h2>
+            <p>One thing I didn’t expect to learn:<br>
+                Windows handles all of this silently and you only realize how much work it’s doing when you switch away
+                from it.</p>
+
+            <p>On Linux, you get control… but sometimes you have to earn it.</p>
+
+            <p>bye ,see you later.</p>
+            <script src="https://giscus.app/client.js" data-repo="Ali-Al-Khuwaja/AliDevLog" data-repo-id="R_kgDON2vgDA"
+                data-category="General" data-category-id="DIC_kwDON2vgDM4ComHp" data-mapping="pathname" data-strict="0"
+                data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="dark"
+                data-lang="en" crossorigin="anonymous" async>
+                </script>
+        </article>
+
+    </main>
+    <footer>
+
+        <hr />
+        <div class="legalStuff">
+            <p>
+                Attribution-NonCommercial-ShareAlike 4.0 International
+            </p>
+            <div>
+                <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en"><img
+                        src="../assets/images/site_images/by-nc-sa.svg"
+                        alt="Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License logo" /></a>
+            </div>
+        </div>
+    </footer>
+    <!-- Cloudflare Web Analytics -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+        data-cf-beacon='{"token": "11ffea77b5d6463b91d93d06bc02c664"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+
+</html>
